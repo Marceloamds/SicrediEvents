@@ -1,0 +1,34 @@
+ext {
+    buildToolsVersion = '30.0.3'
+}
+
+buildscript {
+
+    ext {
+        kotlinVersion = '1.6.0'
+        retrofitVersion = '2.9.0'
+        koinVersion = '3.1.4'
+        glideVersion = '4.12.0'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

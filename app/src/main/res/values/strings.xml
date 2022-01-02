@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Sicredi Events</string>
+    <!--Global Strings-->
+    <string name="global_try_again">Try Again</string>
+    <string name="global_ok">OK</string>
+    <string name="global_send">Send</string>
+    <string name="global_error">Error</string>
+    <string name="global_cancel">Cancel</string>
+    <!--Error Strings-->
+    <string name="error_title">Oops!</string>
+    <string name="error_unauthorized">Could not complete operation. You ate not authorized</string>
+    <string name="error_too_many_requests">Requests limit reached. Please try again later</string>
+    <!--List Events-->
+    <string name="search_for_reviews">Search for reviews</string>
+    <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="show_all_events">Show all events</string>
+    <string name="send_review_to">Send review to</string>
+    <string name="share_review_text">Check out this awesome review!\n\n%s</string>
+    <string name="empty_list_helper_text">Could not find any reviews for this search :(\n\nCheck out your internet connection or try again with another search!</string>
+    <!--Event Details-->
+    <string name="synopsis_label">Synopsis</string>
+    <string name="review_publication_template">by %s - %s</string>
+    <string name="go_to_review">Go to review</string>
+    <string name="review_label">Review</string>
+</resources>

@@ -1,0 +1,2 @@
+rootProject.name='Sicredi Events'
+include ':app'
