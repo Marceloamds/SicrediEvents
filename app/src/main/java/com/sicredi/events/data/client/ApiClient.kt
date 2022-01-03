@@ -2,7 +2,6 @@ package com.sicredi.events.data.client
 
 import com.sicredi.events.data.entity.ApiEvent
 import com.sicredi.events.data.util.request.RequestHandler
-import com.sicredi.events.domain.entity.event.Event
 
 class ApiClient constructor(
     private val apiService: ApiService

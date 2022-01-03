@@ -34,5 +34,9 @@
             android:name="com.sicredi.events.presentation.view.events.list.ListEventsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
     </application>
 </manifest>

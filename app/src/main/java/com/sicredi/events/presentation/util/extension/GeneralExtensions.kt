@@ -1,19 +1,19 @@
 package com.sicredi.events.presentation.util.extension
 
-import java.text.SimpleDateFormat
+import android.content.Context
+import com.sicredi.events.R
 import java.util.*
 
-private const val DAY_MONTH_YEAR = "dd/MM/yyyy"
+private const val BRAZILIAN_WEEKDAY_SUFFIX = "-feira"
 
-fun Date.format(pattern: String = DAY_MONTH_YEAR): String {
-    return getSimpleDateFormatter(pattern).format(this)
+fun Double.toMoneyString(context: Context): String {
+    return context.getString(R.string.money_template, this)
 }
 
-fun getSimpleDateFormatter(
-    pattern: String,
-    timeZone: TimeZone = TimeZone.getTimeZone("UTC")
-): SimpleDateFormat {
-    return SimpleDateFormat(pattern, Locale.getDefault()).also {
-        it.timeZone = timeZone
-    }
+fun String.capitalizeFirstLetter(): String {
+    return replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+}
+
+fun String.removeWeekdaySuffix(): String {
+    return removeSuffix(BRAZILIAN_WEEKDAY_SUFFIX)
 }

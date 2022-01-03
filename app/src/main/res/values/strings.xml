@@ -24,4 +24,6 @@
     <string name="review_publication_template">by %s - %s</string>
     <string name="go_to_review">Go to review</string>
     <string name="review_label">Review</string>
+    <string name="date_description_template">%s, %2d de %s</string>
+    <string name="money_template">R$ %.2f</string>
 </resources>

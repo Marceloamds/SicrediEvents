@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="com.sicredi.events.presentation.view.events.details.EventDetailsActivity" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,15 +41,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/button_favorite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:src="@drawable/ic_favorite_border"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <View
                     android:id="@+id/guideline"
                     android:layout_width="wrap_content"
@@ -74,20 +70,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="32dp"
-                        app:layout_constraintEnd_toStartOf="@+id/button_share"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Star Wars - The Phantom Menace" />
-
-                    <ImageView
-                        android:id="@+id/button_share"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_share"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/text_view_opening_date"
@@ -123,59 +109,35 @@
                         app:layout_constraintTop_toBottomOf="@+id/text_view_synopsis_hint"
                         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere placerat quam, in laoreet turpis condimentum sed. Vestibulum maximus malesuada tristique. In eget auctor mauris. Donec in lacus porttitor, ullamcorper." />
 
-                    <TextView
-                        android:id="@+id/text_view_review_hint"
-                        style="@style/HeadlineTextAppearance"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="@string/review_label"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_synopsis" />
-
-                    <TextView
-                        android:id="@+id/text_view_review_title"
-                        style="@style/TextAppearance"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_review_hint"
-                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere placerat quam, in laoreet turpis condimentum sed. Vestibulum maximus malesuada tristique. In eget auctor mauris. Donec in lacus porttitor, ullamcorper." />
-
-                    <TextView
-                        android:id="@+id/text_view_publication"
-                        style="@style/SubTextAppearance"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_review_title"
-                        tools:text="10/10/2010" />
 
                     <Button
                         android:id="@+id/button_go_to_review"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="48dp"
-                        android:layout_margin="48dp"
+                        android:layout_marginHorizontal="48dp"
+                        android:layout_marginTop="32dp"
                         android:alpha="0.8"
                         android:background="@drawable/button_background"
                         android:text="@string/go_to_review"
                         android:textAllCaps="false"
                         android:textColor="@color/colorWhite"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_publication" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_synopsis" />
+
+                    <fragment
+                        android:id="@+id/google_map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:tag="google_map"
+                        android:clickable="true"
+                        app:uiZoomGestures="false"
+                        app:uiScrollGestures="false"
+                        app:cameraZoom="15"
+                        app:layout_constraintTop_toBottomOf="@id/button_go_to_review"
+                        android:focusable="true" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

@@ -26,40 +26,71 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
+                app:layout_constraintGuide_percent="0.45"/>
 
             <TextView
                 android:id="@+id/text_view_event_title"
                 style="@style/TitleTextAppearance"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:maxLines="2"
+                android:ellipsize="marquee"
+                tools:text="Feira de produtos naturais e orgânicos"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_view_event_review"
+                android:id="@+id/text_view_event_description"
                 style="@style/HelperTextAppearance"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="8dp"
                 android:ellipsize="end"
-                android:maxLines="5"
+                android:maxLines="3"
                 app:layout_constrainedWidth="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/text_view_event_title"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere placerat quam, in laoreet turpis condimentum sed. Vestibulum maximus malesuada tristique. In eget auctor mauris. Donec in lacus porttitor, ullamcorper." />
+
+            <TextView
+                android:id="@+id/text_view_event_price"
+                style="@style/HelperTextAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:maxLines="3"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/text_view_event_date"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                tools:text="R$ 32,00" />
+
+            <TextView
+                android:id="@+id/text_view_event_date"
+                style="@style/HelperTextAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:layout_marginBottom="8dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toStartOf="@id/guideline"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteY="120dp"
+                tools:text="Sábado, 4 de dezembro" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_view_event_poster"
             android:layout_width="120dp"
             android:layout_height="160dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"

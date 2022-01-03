@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 android {
     compileSdkVersion 31
@@ -16,7 +18,9 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         buildConfigField "String", "API_ENDPOINT", "\"http://5f5a8f24d44d640016169133.mockapi.io/api/\""
+        buildConfigField "String", "MAPS_KEY", "\"AIzaSyDOb5LSy_DXyWbsRGybifAPaLBgFgb_57I\""
     }
 
     buildTypes {
@@ -27,6 +31,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -61,4 +66,10 @@ dependencies {
     // Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    //Maps
+    implementation 'com.google.android.gms:play-services-maps:18.0.1'
+
+    //Desugaring
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
