@@ -1,11 +1,13 @@
 package com.sicredi.events.presentation.util.extension
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import com.sicredi.events.R
 import com.sicredi.events.presentation.util.dialog.DialogData
+import com.sicredi.events.presentation.util.navigation.NavData
 
 private const val INTENT_TEXT_TYPE = "text/plain"
 
@@ -40,3 +42,11 @@ fun AlertDialog.Builder.setNegativeButton(buttonText: String?, onClick: (() -> U
         buttonText ?: context.getString(R.string.global_cancel),
         onClick?.let { { _: DialogInterface, _: Int -> it() } }
     )
+
+fun Activity.onGoTo(navData: NavData?) {
+    navData?.navigate(this)
+}
+
+fun Activity.onDialog(dialogData: DialogData?) {
+    dialogData?.let(::showDialog)
+}

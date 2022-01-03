@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sicredi.events.domain.entity.event.Event
 import com.sicredi.events.domain.interactor.EventCheckIn
-import com.sicredi.events.domain.interactor.GetEventDetail
 import com.sicredi.events.domain.interactor.GetEventsList
 import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.error.ErrorHandler
@@ -17,7 +16,6 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class ListEventsViewModel constructor(
-    private val getEventDetail: GetEventDetail,
     private val eventCheckIn: EventCheckIn,
     private val getEventsList: GetEventsList
 ) : ViewModel(), KoinComponent {
@@ -66,6 +64,7 @@ class ListEventsViewModel constructor(
 
     private fun onFailure(throwable: Throwable) {
         showErrorDialog(throwable) { requestEvents() }
+        _showEmptyPlaceholder.value = true
     }
 
     private fun showErrorDialog(throwable: Throwable, retryAction: (() -> Unit)) {

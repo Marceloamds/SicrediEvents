@@ -9,7 +9,7 @@ import org.koin.dsl.module
 fun viewModelModule() = module {
 
     viewModel {
-        ListEventsViewModel(get(), get(), get())
+        ListEventsViewModel(get(), get())
     }
 
     viewModel {

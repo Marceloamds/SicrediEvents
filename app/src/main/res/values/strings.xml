@@ -10,6 +10,7 @@
     <string name="error_title">Oops!</string>
     <string name="error_unauthorized">Could not complete operation. You ate not authorized</string>
     <string name="error_too_many_requests">Requests limit reached. Please try again later</string>
+    <string name="error_default">Não foi possível carregar os eventos! Tente novamente.</string>
     <!--List Events-->
     <string name="search_for_reviews">Search for reviews</string>
     <string name="action_search">Search</string>

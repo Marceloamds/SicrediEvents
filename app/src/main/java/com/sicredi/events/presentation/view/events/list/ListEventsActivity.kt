@@ -8,8 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sicredi.events.R
+import com.sicredi.events.presentation.util.extension.onGoTo
+import com.sicredi.events.presentation.util.extension.onDialog
 import com.sicredi.events.databinding.ActivityListEventsBinding
 import com.sicredi.events.presentation.util.extension.setSafeClickListener
+import com.sicredi.events.presentation.util.extension.setVisible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListEventsActivity : AppCompatActivity() {
@@ -32,12 +35,12 @@ class ListEventsActivity : AppCompatActivity() {
         _viewModel.eventList.observe(this) { it?.let(adapter::submitList) }
         _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
         _viewModel.showEmptyPlaceholder.observe(this, ::onEmptyPlaceholder)
+        _viewModel.goTo.observe(this, ::onGoTo)
+        _viewModel.dialog.observe(this, ::onDialog)
     }
 
     private fun setupRecyclerView() {
-        adapter = ListEventsAdapter(
-            _viewModel::onEventSelected,
-        )
+        adapter = ListEventsAdapter(_viewModel::onEventSelected)
         binding.recyclerViewEvents.layoutManager = LinearLayoutManager(this@ListEventsActivity)
         binding.recyclerViewEvents.adapter = adapter
     }
@@ -47,8 +50,7 @@ class ListEventsActivity : AppCompatActivity() {
     }
 
     private fun onEmptyPlaceholder(showEmptyPlaceholder: Boolean?) {
-        binding.emptyListLayout.visibility =
-            if (showEmptyPlaceholder == true) View.VISIBLE else View.GONE
+        binding.emptyListLayout.setVisible(showEmptyPlaceholder)
     }
 
     companion object {

@@ -12,10 +12,6 @@ class ApiClient constructor(
         return makeRequest(apiService.getEventsList())
     }
 
-    suspend fun getEventDetail(eventId: Int): ApiEvent? {
-        return makeRequest(apiService.getEventDetail(eventId))
-    }
-
     suspend fun eventCheckIn() {
         makeRequest(apiService.eventCheckIn())
     }

@@ -1,5 +1,6 @@
 package com.sicredi.events.presentation.util.extension
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.View
 import android.view.Window
@@ -36,10 +37,15 @@ fun setWindowFlag(bits: Int, on: Boolean, window: Window) {
     win.attributes = winParams
 }
 
+@SuppressLint("CheckResult")
 fun ImageView.load(url: String?) {
     val requestOptions = RequestOptions().apply {
         placeholder(R.drawable.placeholder)
         centerCrop()
     }
     Glide.with(this).load(url).apply(requestOptions).into(this)
+}
+
+fun View.setVisible(isVisible: Boolean?) {
+    visibility = if (isVisible == true) View.VISIBLE else View.GONE
 }

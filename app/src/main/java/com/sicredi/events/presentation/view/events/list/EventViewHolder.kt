@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sicredi.events.R
 import com.sicredi.events.databinding.ItemEventBinding
 import com.sicredi.events.domain.entity.event.Event
+import com.sicredi.events.presentation.util.extension.load
 
 class EventViewHolder(
     private var binding: ItemEventBinding
@@ -15,23 +16,14 @@ class EventViewHolder(
 
     fun setupBinding(
         event: Event,
-        callback: (Event) -> Unit,
+        onEventClickedCallback: (Event) -> Unit,
     ) {
         with(binding) {
-            root.setOnClickListener { callback(event) }
+            root.setOnClickListener { onEventClickedCallback(event) }
             textViewEventTitle.text = event.title
             textViewEventReview.text = event.description
-            setupLike(event)
+            imageViewEventPoster.load(event.image)
         }
-    }
-
-    private fun setupLike(event: Event) {
-        binding.buttonFavorite.setImageDrawable(
-            ContextCompat.getDrawable(
-                binding.root.context,
-                R.drawable.ic_favorite
-            )
-        )
     }
 
     companion object {

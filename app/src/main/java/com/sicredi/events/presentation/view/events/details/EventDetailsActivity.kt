@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.sicredi.events.R
 import com.sicredi.events.databinding.ActivityEventDetailsBinding
 import com.sicredi.events.domain.entity.event.Event
+import com.sicredi.events.presentation.util.extension.load
 import com.sicredi.events.presentation.util.extension.setSafeClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,6 +42,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
     private fun setupEventInfo() {
         with(binding) {
+            imageViewEventPoster.load(event.image)
             textViewEventTitle.text = event.title
             textViewSynopsis.text = event.description
         }

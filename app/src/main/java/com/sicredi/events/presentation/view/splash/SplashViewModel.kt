@@ -3,7 +3,6 @@ package com.sicredi.events.presentation.view.splash
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sicredi.events.presentation.util.base.BaseViewModel
 import com.sicredi.events.presentation.util.extension.launchDataLoad
 import com.sicredi.events.presentation.util.navigation.NavData
 import com.sicredi.events.presentation.view.events.list.ListEventsNavData

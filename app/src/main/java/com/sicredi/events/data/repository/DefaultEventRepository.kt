@@ -12,10 +12,6 @@ class DefaultEventRepository constructor(
         return apiClient.getEventsList()?.map { it.toDomainObject() }
     }
 
-    override suspend fun getEventDetail(eventId: Int): Event? {
-        return apiClient.getEventDetail(eventId)?.toDomainObject()
-    }
-
     override suspend fun eventCheckIn() {
        apiClient.eventCheckIn()
     }
