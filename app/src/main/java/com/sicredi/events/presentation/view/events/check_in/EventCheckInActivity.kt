@@ -30,6 +30,11 @@ class EventCheckInActivity : AppCompatActivity() {
         subscribeUi()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     private fun setupUi() {
         with(binding) {
             buttonSubmit.setOnClickListener { onSubmitClicked() }
