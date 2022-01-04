@@ -13,10 +13,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.sicredi.events.R
 import com.sicredi.events.databinding.ActivityEventDetailsBinding
 import com.sicredi.events.domain.entity.event.Event
-import com.sicredi.events.presentation.util.extension.getDayDescription
-import com.sicredi.events.presentation.util.extension.load
-import com.sicredi.events.presentation.util.extension.onGoTo
-import com.sicredi.events.presentation.util.extension.setSafeClickListener
+import com.sicredi.events.presentation.util.extension.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventDetailsActivity : AppCompatActivity() {
@@ -40,6 +37,8 @@ class EventDetailsActivity : AppCompatActivity() {
 
     private fun subscribeUi() {
         _viewModel.goTo.observe(this, ::onGoTo)
+        _viewModel.dialog.observe(this, ::onDialog)
+        _viewModel.onCheckInSuccess.observe(this) { onCheckInSuccess() }
         _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
     }
 
@@ -54,10 +53,16 @@ class EventDetailsActivity : AppCompatActivity() {
         with(binding) {
             imageViewEventPoster.load(event.image)
             textViewEventTitle.text = event.title
+            textViewPrice.text = event.price.toMoneyString(root.context)
             textViewDescription.text = event.description
             textViewEventDate.text = event.date.getDayDescription(root.context)
             googleMap.getMapAsync { it.goToPosition(event.location) }
         }
+    }
+
+    private fun onCheckInSuccess() {
+        binding.buttonMakeCheckIn.setVisible(false)
+        binding.textViewCheckInDone.setVisible(true)
     }
 
     private fun GoogleMap.goToPosition(location: LatLng) {

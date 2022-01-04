@@ -11,9 +11,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 fun ViewModel.launchDataLoad(
-    shouldLoad: Boolean = false,
     onFailure: (Throwable) -> Unit = {},
     onPlaceholder: (Placeholder) -> Unit = {},
+    shouldLoad: Boolean = true,
     block: suspend () -> Unit
 ): Job {
     return viewModelScope.launch {

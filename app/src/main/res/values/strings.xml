@@ -14,6 +14,7 @@
     <string name="empty_list_helper_text">Não foi possível carregar os eventos! :(\n\n Verifique sua conexão e tente novamente</string>
     <!--Event Details-->
     <string name="description_label">Descrição</string>
+    <string name="price_label">Preço</string>
     <string name="do_check_in">Fazer Check-in</string>
     <string name="review_label">Review</string>
     <string name="date_description_template">%s, %2d de %s</string>
@@ -29,4 +30,5 @@
     <string name="check_in_save_info_error">Não foi possível salvar suas informações</string>
     <string name="check_in_save_info_success">Informações salvas com sucesso!</string>
     <string name="check_in_submit_info">Submeter informações</string>
+    <string name="check_in_done">Check in realizado com sucesso!</string>
 </resources>
