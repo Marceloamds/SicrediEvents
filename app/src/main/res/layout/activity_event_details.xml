@@ -8,7 +8,7 @@
         <import type="com.sicredi.events.presentation.view.events.details.EventDetailsActivity" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,14 +18,14 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorWhite">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/image_view_event_poster"
                     android:layout_width="0dp"
                     android:layout_height="250dp"
-                    android:src="@drawable/placeholder"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/written_logo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -73,10 +73,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Star Wars - The Phantom Menace" />
+                        tools:text="Feira de Produtos Naturais e Orgânicos" />
 
                     <TextView
-                        android:id="@+id/text_view_opening_date"
+                        android:id="@+id/text_view_event_date"
                         style="@style/SubTextAppearance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,18 +86,18 @@
                         tools:text="10/10/2010" />
 
                     <TextView
-                        android:id="@+id/text_view_synopsis_hint"
+                        android:id="@+id/text_view_description_hint"
                         style="@style/HeadlineTextAppearance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="@string/synopsis_label"
+                        android:text="@string/description_label"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_opening_date" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_event_date" />
 
                     <TextView
-                        android:id="@+id/text_view_synopsis"
+                        android:id="@+id/text_view_description"
                         style="@style/TextAppearance"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -106,41 +106,63 @@
                         android:layout_marginEnd="16dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_synopsis_hint"
-                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere placerat quam, in laoreet turpis condimentum sed. Vestibulum maximus malesuada tristique. In eget auctor mauris. Donec in lacus porttitor, ullamcorper." />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_description_hint"
+                        tools:text="Toda quarta-feira, das 17h às 22h, encontre a feira mais charmosa de produtos frescos, naturais e orgânicos no estacionamento do Shopping. Sintonizado com a tendência crescente de busca pela alimentação saudável, consumo consciente e qualidade de vida. \n\nAs barracas terão grande variedade de produtos, como o shiitake cultivado em Ibiporã há mais de 20 anos, um sucesso na mesa dos que não abrem mão do saudável cogumelo na dieta. Ou os laticínios orgânicos da Estância Baobá, famosos pelo qualidade e modo de fabricação sustentável na vizinha Jaguapitã. Também estarão na feira as conhecidas compotas e patês tradicionais da Pousada Marabú, de Rolândia.\n\nA feira do Catuaí é uma nova opção de compras de produtos que não são facilmente encontrados no varejo tradicional, além de ótima pedida para o descanso de final de tarde em família e entre amigos. E com o diferencial de ser noturna, facilitando a vida dos consumidores que poderão sair do trabalho e ir direto para a “Vila Verde”, onde será possível degustar delícias saudáveis nos bistrôs, ouvir música ao vivo, levar as crianças para a diversão em uma estação de brinquedos e relaxar ao ar livre.\n\nEXPOSITORES DA VILA VERDE CATUAÍ\n\nCraft Hamburgueria\nNido Pastíficio\nSabor e Saúde\nTerra Planta\nEmpório da Papinha\nEmpório Sabor da Serra\nBoleria Dom Leonardi\nCoisas que te ajudam a viver\nPatês da Marisa\nMarabú\nBaobá\nAkko\nCervejaria Amadeus\n12 Tribos\nParr Kitchen\nHorta Fazenda São Virgílio\nHorta Chácara Santo Antonio\nSur Empanadas\nFit and Sweet\nSK e T Cogumelos\nDos Quintana\n\nLocal: Estacionamento (entrada principal do Catuaí Shopping Londrina)\n\n\nAcesso à Feira gratuito." />
 
-
-                    <Button
-                        android:id="@+id/button_make_check_in"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginHorizontal="48dp"
-                        android:layout_marginTop="32dp"
-                        android:alpha="0.8"
-                        android:background="@drawable/button_background"
-                        android:text="@string/do_check_in"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorWhite"
-                        app:layout_constraintEnd_toEndOf="parent"
+                    <TextView
+                        android:id="@+id/text_view_location_hint"
+                        style="@style/HeadlineTextAppearance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/check_in_location_hint"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_view_synopsis" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_description" />
 
                     <fragment
                         android:id="@+id/google_map"
                         android:name="com.google.android.gms.maps.SupportMapFragment"
                         android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="16dp"
-                        android:layout_height="200dp"
-                        android:tag="google_map"
                         android:clickable="true"
-                        app:uiZoomGestures="false"
-                        app:uiScrollGestures="false"
+                        android:focusable="true"
+                        android:tag="google_map"
                         app:cameraZoom="15"
-                        app:layout_constraintTop_toBottomOf="@id/button_make_check_in"
-                        android:focusable="true" />
+                        app:layout_constraintTop_toBottomOf="@id/text_view_location_hint"
+                        app:uiScrollGestures="false"
+                        app:uiZoomGestures="false"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_make_check_in"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginHorizontal="48dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:alpha="0.9"
+                        android:text="@string/do_check_in"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorOffWhite"
+                        app:cornerRadius="22dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/google_map"
+                        app:strokeColor="@color/colorOffWhite"
+                        app:strokeWidth="1dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-    </LinearLayout>
+
+        <com.sicredi.events.presentation.util.placeholder.PlaceholderView
+            android:id="@+id/placeholder_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,36 +1,29 @@
 <resources>
     <string name="app_name">Sicredi Events</string>
     <!--Global Strings-->
-    <string name="global_try_again">Try Again</string>
+    <string name="global_try_again">Tente novamente</string>
     <string name="global_ok">OK</string>
-    <string name="global_send">Send</string>
-    <string name="global_error">Error</string>
-    <string name="global_cancel">Cancel</string>
+    <string name="global_cancel">Cancelar</string>
     <!--Error Strings-->
     <string name="error_title">Oops!</string>
     <string name="error_unauthorized">Could not complete operation. You ate not authorized</string>
     <string name="error_too_many_requests">Requests limit reached. Please try again later</string>
     <string name="error_default">Não foi possível carregar os eventos! Tente novamente.</string>
     <!--List Events-->
-    <string name="search_for_reviews">Search for reviews</string>
-    <string name="action_search">Search</string>
-    <string name="action_filter">Filter</string>
-    <string name="show_all_events">Show all events</string>
-    <string name="send_review_to">Send review to</string>
-    <string name="share_review_text">Check out this awesome review!\n\n%s</string>
-    <string name="empty_list_helper_text">Could not find any reviews for this search :(\n\nCheck out your internet connection or try again with another search!</string>
+    <string name="choose_your_event">Escolha seu evento!</string>
+    <string name="empty_list_helper_text">Não foi possível carregar os eventos! :(\n\n Verifique sua conexão e tente novamente</string>
     <!--Event Details-->
-    <string name="synopsis_label">Synopsis</string>
-    <string name="review_publication_template">by %s - %s</string>
+    <string name="description_label">Descrição</string>
     <string name="do_check_in">Fazer Check-in</string>
     <string name="review_label">Review</string>
     <string name="date_description_template">%s, %2d de %s</string>
     <string name="money_template">R$ %.2f</string>
     <!--Event Check-In-->
-    <string name="review_labael">Review</string>
+    <string name="check_in_title">Check in</string>
     <string name="check_in_info_explanation">Preencha as informações para prosseguir com o check-in</string>
     <string name="check_in_name_hint">Informe seu nome</string>
     <string name="check_in_email_hint">Informe seu email</string>
+    <string name="check_in_location_hint">Localização</string>
     <string name="check_in_email_error">E-mail inválido</string>
     <string name="check_in_name_error">Por favor, insira seu nome</string>
     <string name="check_in_save_info_error">Não foi possível salvar suas informações</string>

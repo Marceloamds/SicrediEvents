@@ -48,7 +48,7 @@ class ListEventsViewModel constructor(
     }
 
     private fun requestEvents() {
-        launchDataLoad(true, onFailure = ::onFailure) {
+        launchDataLoad(true, onFailure = ::onFailure, onPlaceholder = { _placeholder.value = it }) {
             val eventsList = getEventsList.execute()
             setEventsList(eventsList)
         }

@@ -3,7 +3,6 @@ package com.sicredi.events.presentation.view.events.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +24,7 @@ class ListEventsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list_events)
-        supportActionBar?.title = getString(R.string.search_for_reviews)
+        supportActionBar?.title = getString(R.string.choose_your_event)
         setupRecyclerView()
         setupUi()
         subscribeUi()

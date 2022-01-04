@@ -13,6 +13,7 @@ import com.sicredi.events.domain.form.validator.InvalidFieldsException
 import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.extension.eraseErrorsWhenTextIsChanged
 import com.sicredi.events.presentation.util.extension.onDialog
+import com.sicredi.events.presentation.util.extension.setSafeClickListener
 import com.sicredi.events.presentation.util.extension.shortToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -25,6 +26,7 @@ class EventCheckInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.check_in_title)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_event_check_in)
         setupUi()
         subscribeUi()
@@ -37,7 +39,7 @@ class EventCheckInActivity : AppCompatActivity() {
 
     private fun setupUi() {
         with(binding) {
-            buttonSubmit.setOnClickListener { onSubmitClicked() }
+            buttonSubmit.setSafeClickListener { onSubmitClicked() }
             nameLayout.eraseErrorsWhenTextIsChanged()
             emailLayout.eraseErrorsWhenTextIsChanged()
         }

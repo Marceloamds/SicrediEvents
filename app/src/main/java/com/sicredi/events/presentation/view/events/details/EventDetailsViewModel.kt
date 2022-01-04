@@ -3,14 +3,14 @@ package com.sicredi.events.presentation.view.events.details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sicredi.events.domain.entity.event.Event
 import com.sicredi.events.domain.entity.user.UserInfo
 import com.sicredi.events.domain.interactor.EventCheckIn
 import com.sicredi.events.domain.interactor.GetUserInfo
-import com.sicredi.events.presentation.util.communication.SingleLiveEvent
+import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.error.ErrorHandler
 import com.sicredi.events.presentation.util.extension.launchDataLoad
 import com.sicredi.events.presentation.util.navigation.NavData
+import com.sicredi.events.presentation.util.placeholder.Placeholder
 import com.sicredi.events.presentation.view.events.check_in.EventCheckInNavData
 
 class EventDetailsViewModel(
@@ -19,21 +19,16 @@ class EventDetailsViewModel(
     private val getUserInfo: GetUserInfo
 ) : ViewModel() {
 
-    val shareEvent: LiveData<Event> get() = _shareEvent
-    val eventDetail: LiveData<Int> get() = _eventDetail
     val goTo: LiveData<NavData> get() = _goTo
+    val placeholder: LiveData<Placeholder> get() = _placeholder
+    val dialog: LiveData<DialogData> get() = _dialog
 
-    private val _shareEvent by lazy { MutableLiveData<Event>() }
-    private val _eventDetail by lazy { MutableLiveData<Int>() }
-    private val _onNoUserInfo by lazy { SingleLiveEvent<Unit>() }
     private val _goTo by lazy { MutableLiveData<NavData>() }
-
-    fun onShareClicked(event: Event?) {
-        _shareEvent.value = event
-    }
+    private val _placeholder by lazy { MutableLiveData<Placeholder>() }
+    private val _dialog by lazy { MutableLiveData<DialogData>() }
 
     fun onCheckInClicked(eventId: Int) {
-        launchDataLoad {
+        launchDataLoad(onPlaceholder = { _placeholder.value = it }) {
             val userInfo = getUserInfo.execute()
             userInfo?.let { makeCheckIn(eventId, it) } ?: run { onNoUserInfo() }
         }

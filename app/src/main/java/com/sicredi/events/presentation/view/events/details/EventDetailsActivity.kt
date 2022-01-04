@@ -40,6 +40,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
     private fun subscribeUi() {
         _viewModel.goTo.observe(this, ::onGoTo)
+        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
     }
 
     private fun setupUi() {
@@ -53,8 +54,8 @@ class EventDetailsActivity : AppCompatActivity() {
         with(binding) {
             imageViewEventPoster.load(event.image)
             textViewEventTitle.text = event.title
-            textViewSynopsis.text = event.description
-            textViewOpeningDate.text = event.date.getDayDescription(root.context)
+            textViewDescription.text = event.description
+            textViewEventDate.text = event.date.getDayDescription(root.context)
             googleMap.getMapAsync { it.goToPosition(event.location) }
         }
     }

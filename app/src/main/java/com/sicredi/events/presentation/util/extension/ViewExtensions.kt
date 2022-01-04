@@ -9,9 +9,9 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.sicredi.events.R
 import com.sicredi.events.presentation.util.click.SafeClickListener
@@ -43,9 +43,9 @@ fun setWindowFlag(bits: Int, on: Boolean, window: Window) {
 }
 
 @SuppressLint("CheckResult")
-fun ImageView.load(url: String?) {
+fun ImageView.load(url: String?, @DrawableRes placeholder: Int = R.drawable.written_logo) {
     val requestOptions = RequestOptions().apply {
-        placeholder(R.drawable.placeholder)
+        placeholder(placeholder)
         centerCrop()
     }
     Glide.with(this).load(url).apply(requestOptions).into(this)
