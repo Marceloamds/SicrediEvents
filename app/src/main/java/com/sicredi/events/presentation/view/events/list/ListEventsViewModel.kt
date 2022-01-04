@@ -12,15 +12,12 @@ import com.sicredi.events.presentation.util.extension.launchDataLoad
 import com.sicredi.events.presentation.util.navigation.NavData
 import com.sicredi.events.presentation.util.placeholder.Placeholder
 import com.sicredi.events.presentation.view.events.details.EventDetailsNavData
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
 class ListEventsViewModel constructor(
     private val eventCheckIn: EventCheckIn,
-    private val getEventsList: GetEventsList
-) : ViewModel(), KoinComponent {
-
-    private val errorHandler: ErrorHandler by inject()
+    private val getEventsList: GetEventsList,
+    private val errorHandler: ErrorHandler
+) : ViewModel() {
 
     val placeholder: LiveData<Placeholder> get() = _placeholder
     val goTo: LiveData<NavData> get() = _goTo

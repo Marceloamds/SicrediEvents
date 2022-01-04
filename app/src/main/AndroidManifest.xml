@@ -35,6 +35,11 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name="com.sicredi.events.presentation.view.events.check_in.EventCheckInActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />

@@ -62,4 +62,3 @@ class ListEventsActivity : AppCompatActivity() {
             }
     }
 }
-

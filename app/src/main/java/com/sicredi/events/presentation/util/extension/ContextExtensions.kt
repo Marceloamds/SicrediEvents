@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.widget.Toast
 import com.sicredi.events.R
 import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.navigation.NavData
@@ -50,3 +51,6 @@ fun Activity.onGoTo(navData: NavData?) {
 fun Activity.onDialog(dialogData: DialogData?) {
     dialogData?.let(::showDialog)
 }
+
+fun Context.shortToast(message: String) =
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
