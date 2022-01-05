@@ -8,8 +8,8 @@ class DialogData(
     val message: String,
     val confirmButtonText: String? = null,
     val onConfirm: (() -> Unit)? = null,
-    val dismissButtonText: String? = null,
-    val onDismiss: (() -> Unit)? = null,
+    val cancelButtonText: String? = null,
+    val onCancel: (() -> Unit)? = null,
     val cancelable: Boolean? = true
 ) {
     companion object {

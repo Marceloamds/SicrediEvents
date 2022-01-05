@@ -21,6 +21,10 @@
     <string name="money_template">R$ %.2f</string>
     <!--Event Check-In-->
     <string name="check_in_title">Check in</string>
+    <string name="user_info_dialog_title">Continuar com suas informações?</string>
+    <string name="user_info_dialog_description">Nome: %s \nEmail: %s</string>
+    <string name="user_info_dialog_keep_info">Continuar</string>
+    <string name="user_info_dialog_change_info">Mudar informações</string>
     <string name="check_in_info_explanation">Preencha as informações para prosseguir com o check-in</string>
     <string name="check_in_name_hint">Informe seu nome</string>
     <string name="check_in_email_hint">Informe seu email</string>

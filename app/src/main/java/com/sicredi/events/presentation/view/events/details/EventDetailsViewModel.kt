@@ -12,7 +12,7 @@ import com.sicredi.events.presentation.util.error.ErrorHandler
 import com.sicredi.events.presentation.util.extension.launchDataLoad
 import com.sicredi.events.presentation.util.navigation.NavData
 import com.sicredi.events.presentation.util.placeholder.Placeholder
-import com.sicredi.events.presentation.view.events.check_in.EventCheckInNavData
+import com.sicredi.events.presentation.view.user.check_in.UserInfoNavData
 
 class EventDetailsViewModel(
     private val eventCheckIn: EventCheckIn,
@@ -24,26 +24,32 @@ class EventDetailsViewModel(
     val placeholder: LiveData<Placeholder> get() = _placeholder
     val dialog: LiveData<DialogData> get() = _dialog
     val onCheckInSuccess: LiveData<Unit> get() = _onCheckInSuccess
+    val onUserInfo: LiveData<UserInfo> get() = _onUserInfo
 
     private val _goTo by lazy { SingleLiveEvent<NavData>() }
     private val _placeholder by lazy { SingleLiveEvent<Placeholder>() }
     private val _dialog by lazy { SingleLiveEvent<DialogData>() }
     private val _onCheckInSuccess by lazy { MutableLiveData<Unit>() }
+    private val _onUserInfo by lazy { MutableLiveData<UserInfo>() }
 
-    fun onCheckInClicked(eventId: Int) {
+    fun onCheckInClicked() {
         launchDataLoad {
             val userInfo = getUserInfo.execute()
-            userInfo?.let { makeCheckIn(eventId, it) } ?: run { onNoUserInfo() }
+            userInfo?.let { onUserInfo(it) } ?: run { goToUserInfo() }
         }
     }
 
-    private fun onNoUserInfo() {
-        _goTo.value = EventCheckInNavData()
+    fun goToUserInfo() {
+        _goTo.value = UserInfoNavData()
     }
 
-    private fun makeCheckIn(eventId: Int, userInfo: UserInfo) {
+    private fun onUserInfo(userInfo: UserInfo){
+        _onUserInfo.value = userInfo
+    }
+
+    fun makeCheckIn(eventId: Int, userInfo: UserInfo) {
         launchDataLoad(
-            onFailure = { onFailure(it, eventId) },
+            onFailure = { onFailure(it) },
             onPlaceholder = { _placeholder.value = it }
         ) {
             eventCheckIn.execute(eventId, userInfo)
@@ -51,7 +57,7 @@ class EventDetailsViewModel(
         }
     }
 
-    private fun onFailure(throwable: Throwable, eventId: Int) {
-        _dialog.value = errorHandler.getDialogData(throwable) { onCheckInClicked(eventId) }
+    private fun onFailure(throwable: Throwable) {
+        _dialog.value = errorHandler.getDialogData(throwable) { onCheckInClicked() }
     }
 }

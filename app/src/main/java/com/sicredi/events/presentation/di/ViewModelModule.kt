@@ -1,6 +1,6 @@
 package com.sicredi.events.presentation.di
 
-import com.sicredi.events.presentation.view.events.check_in.EventCheckInViewModel
+import com.sicredi.events.presentation.view.user.check_in.UserInfoViewModel
 import com.sicredi.events.presentation.view.events.details.EventDetailsViewModel
 import com.sicredi.events.presentation.view.events.list.ListEventsViewModel
 import com.sicredi.events.presentation.view.splash.SplashViewModel
@@ -18,7 +18,7 @@ fun viewModelModule() = module {
     }
 
     viewModel {
-        EventCheckInViewModel(get())
+        UserInfoViewModel(get())
     }
 
     viewModel { SplashViewModel() }

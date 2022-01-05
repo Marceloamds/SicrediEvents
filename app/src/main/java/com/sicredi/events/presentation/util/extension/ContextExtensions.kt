@@ -17,17 +17,16 @@ fun Context.showDialog(dialogData: DialogData): Dialog {
     builder.setTitle(dialogData.title)
     builder.setMessage(dialogData.message)
     if (dialogData.confirmButtonText == null && dialogData.onConfirm == null) {
-        builder.setPositiveButton(dialogData.dismissButtonText, dialogData.onDismiss)
+        builder.setPositiveButton(dialogData.cancelButtonText, dialogData.onCancel)
     } else {
         builder.setPositiveButton(
             dialogData.confirmButtonText, dialogData.onConfirm
-                ?: dialogData.onDismiss
+                ?: dialogData.onCancel
         )
-        if (dialogData.dismissButtonText != null || dialogData.onDismiss != null) {
-            builder.setNegativeButton(dialogData.dismissButtonText, dialogData.onDismiss)
+        if (dialogData.cancelButtonText != null || dialogData.onCancel != null) {
+            builder.setNegativeButton(dialogData.cancelButtonText, dialogData.onCancel)
         }
     }
-    dialogData.onDismiss?.let { builder.setOnCancelListener { it() } }
     builder.setCancelable(dialogData.cancelable ?: true)
     return builder.show()
 }

@@ -1,4 +1,4 @@
-package com.sicredi.events.presentation.view.events.check_in
+package com.sicredi.events.presentation.view.user.check_in
 
 import android.content.Context
 import android.content.Intent
@@ -17,9 +17,9 @@ import com.sicredi.events.presentation.util.extension.setSafeClickListener
 import com.sicredi.events.presentation.util.extension.shortToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class EventCheckInActivity : AppCompatActivity() {
+class UserInfoActivity : AppCompatActivity() {
 
-    private val _viewModel: EventCheckInViewModel by viewModel()
+    private val _viewModel: UserInfoViewModel by viewModel()
 
     private lateinit var binding: ActivityEventCheckInBinding
 
@@ -81,6 +81,6 @@ class EventCheckInActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun createIntent(context: Context) = Intent(context, EventCheckInActivity::class.java)
+        fun createIntent(context: Context) = Intent(context, UserInfoActivity::class.java)
     }
 }

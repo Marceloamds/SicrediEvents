@@ -1,4 +1,4 @@
-package com.sicredi.events.presentation.view.events.check_in
+package com.sicredi.events.presentation.view.user.check_in
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import com.sicredi.events.domain.interactor.SaveCheckInInfo
 import com.sicredi.events.presentation.util.communication.SingleLiveEvent
 import com.sicredi.events.presentation.util.extension.launchDataLoad
 
-class EventCheckInViewModel constructor(
+class UserInfoViewModel constructor(
     private val saveCheckInInfo: SaveCheckInInfo
 ) : ViewModel() {
 
