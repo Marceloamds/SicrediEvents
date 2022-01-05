@@ -26,9 +26,17 @@ class ErrorHandler constructor(
 
     private fun getRequestExceptionMessage(throwable: RequestException): String {
         return when (throwable.httpErrorType) {
+            HttpErrorType.BAD_REQUEST -> res(R.string.error_bad_request)
             HttpErrorType.UNAUTHORIZED -> res(R.string.error_unauthorized)
+            HttpErrorType.FORBIDDEN -> res(R.string.error_forbidden)
+            HttpErrorType.NOT_FOUND -> res(R.string.error_not_found)
+            HttpErrorType.TIMEOUT -> res(R.string.error_timeout)
+            HttpErrorType.UNPROCESSABLE_ENTITY -> res(R.string.error_unprocessable_entity)
             HttpErrorType.TOO_MANY_REQUESTS -> res(R.string.error_too_many_requests)
-            else -> res(R.string.error_default)
+            HttpErrorType.INTERNAL_SERVER_ERROR -> res(R.string.error_internal_server_error)
+            HttpErrorType.BAD_GATEWAY -> res(R.string.error_bad_gateway)
+            HttpErrorType.GATEWAY_TIMEOUT -> res(R.string.error_gateway_timeout)
+            null -> res(R.string.error_default)
         }
     }
 

@@ -6,9 +6,17 @@
     <string name="global_cancel">Cancelar</string>
     <!--Error Strings-->
     <string name="error_title">Oops!</string>
-    <string name="error_unauthorized">Could not complete operation. You ate not authorized</string>
-    <string name="error_too_many_requests">Requests limit reached. Please try again later</string>
-    <string name="error_default">Não foi possível carregar os eventos! Tente novamente.</string>
+    <string name="error_bad_request">Não foi possivel realizar operação. Requisição inválida</string>
+    <string name="error_unauthorized">Não foi possivel realizar operação. Você não está autorizado</string>
+    <string name="error_forbidden">Você não pode realizar a operação</string>
+    <string name="error_not_found">Operação não encontrada</string>
+    <string name="error_timeout">Não foi possivel realizar operação. Verifique sua conexão</string>
+    <string name="error_unprocessable_entity">Não foi possivel realizar operação. Verifique suas informações</string>
+    <string name="error_too_many_requests">Limite de requisições atingida. Tente novamente mais tarde</string>
+    <string name="error_internal_server_error">Houve um erro interno. Tente novamente mais tarde</string>
+    <string name="error_bad_gateway">Houve um erro interno. Tente novamente mais tarde</string>
+    <string name="error_gateway_timeout">Houve um erro interno. Tente novamente mais tarde</string>
+    <string name="error_default">Não foi possível realizar a operação! Tente novamente.</string>
     <!--List Events-->
     <string name="choose_your_event">Escolha seu evento!</string>
     <string name="empty_list_helper_text">Não foi possível carregar os eventos! :(\n\n Verifique sua conexão e tente novamente</string>

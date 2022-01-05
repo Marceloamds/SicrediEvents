@@ -14,7 +14,6 @@ import com.sicredi.events.presentation.util.placeholder.Placeholder
 import com.sicredi.events.presentation.view.events.details.EventDetailsNavData
 
 class ListEventsViewModel constructor(
-    private val eventCheckIn: EventCheckIn,
     private val getEventsList: GetEventsList,
     private val errorHandler: ErrorHandler
 ) : ViewModel() {
