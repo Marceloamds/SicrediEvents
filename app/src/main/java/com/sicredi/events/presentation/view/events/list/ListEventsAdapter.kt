@@ -14,10 +14,7 @@ class ListEventsAdapter(
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        holder.setupBinding(
-            getItem(position),
-            onEventClickedCallback,
-        )
+        holder.setupBinding(getItem(position), onEventClickedCallback,)
     }
 
     companion object DiffUtilCallback : DiffUtil.ItemCallback<Event>() {

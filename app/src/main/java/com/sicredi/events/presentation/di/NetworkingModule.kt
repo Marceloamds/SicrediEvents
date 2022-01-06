@@ -1,12 +1,12 @@
 package com.sicredi.events.presentation.di
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.sicredi.events.BuildConfig
 import com.sicredi.events.data.client.ApiClient
 import com.sicredi.events.data.client.ApiService
 import com.sicredi.events.data.util.resource.API_DATE_FORMAT
 import com.sicredi.events.data.util.resource.API_ENDPOINT_NAMED
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named

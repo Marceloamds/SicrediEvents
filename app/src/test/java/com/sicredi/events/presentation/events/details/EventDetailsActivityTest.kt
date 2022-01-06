@@ -4,10 +4,10 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import com.google.android.gms.maps.model.LatLng
 import com.sicredi.events.KoinTestApp
-import com.sicredi.events.presentation.assertText
-import com.sicredi.events.presentation.assertTextContains
 import com.sicredi.events.databinding.ActivityEventDetailsBinding
 import com.sicredi.events.domain.entity.event.Event
+import com.sicredi.events.presentation.assertText
+import com.sicredi.events.presentation.assertTextContains
 import com.sicredi.events.presentation.getBinding
 import com.sicredi.events.presentation.view.events.details.EventDetailsActivity
 import org.junit.After

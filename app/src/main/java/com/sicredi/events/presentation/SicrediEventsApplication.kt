@@ -18,7 +18,7 @@ class SicrediEventsApplication : Application() {
                     networkingModule(),
                     viewModelModule(),
                     repositoryModule(),
-                    interactorModule(),
+                    useCaseModule(),
                     resourceModule()
                 )
             )

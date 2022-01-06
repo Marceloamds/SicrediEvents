@@ -5,11 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.sicredi.events.R
-import com.sicredi.events.presentation.util.extension.onGoTo
-import com.sicredi.events.presentation.util.extension.onDialog
 import com.sicredi.events.databinding.ActivityListEventsBinding
+import com.sicredi.events.presentation.util.extension.onDialog
+import com.sicredi.events.presentation.util.extension.onGoTo
 import com.sicredi.events.presentation.util.extension.setSafeClickListener
 import com.sicredi.events.presentation.util.extension.setVisible
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,11 +30,11 @@ class ListEventsActivity : AppCompatActivity() {
     }
 
     private fun subscribeUi() {
-        _viewModel.eventList.observe(this) { it?.let(adapter::submitList) }
-        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
         _viewModel.showEmptyPlaceholder.observe(this, ::onEmptyPlaceholder)
         _viewModel.goTo.observe(this, ::onGoTo)
         _viewModel.dialog.observe(this, ::onDialog)
+        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
+        _viewModel.eventList.observe(this) { it?.let(adapter::submitList) }
     }
 
     private fun setupRecyclerView() {

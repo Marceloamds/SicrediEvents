@@ -2,9 +2,10 @@ package com.sicredi.events.data.client
 
 import com.sicredi.events.data.entity.ApiEvent
 import com.sicredi.events.data.entity.CheckInRequest
-import com.sicredi.events.domain.entity.event.Event
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiService {
 

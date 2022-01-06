@@ -19,9 +19,7 @@ class PlaceholderView constructor(
     }
 
     fun setPlaceholder(placeholder: Placeholder?) {
-        placeholder?.let { _placeholder ->
-            setBaseVariables(_placeholder)
-        }
+        placeholder?.let { setBaseVariables(it) }
     }
 
     private fun loadBinding() {

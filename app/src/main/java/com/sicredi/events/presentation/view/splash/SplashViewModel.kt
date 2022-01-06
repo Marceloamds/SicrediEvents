@@ -21,6 +21,6 @@ class SplashViewModel : ViewModel() {
     }
 
     companion object {
-        private const val SPLASH_DELAY = 2000L
+        const val SPLASH_DELAY = 2000L
     }
 }

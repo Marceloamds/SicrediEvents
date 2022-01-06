@@ -20,7 +20,7 @@ class KoinTestApp : Application() {
                     networkingModule(),
                     viewModelModule(),
                     repositoryModule(),
-                    interactorModule(),
+                    useCaseModule(),
                     resourceModule()
                 )
             )

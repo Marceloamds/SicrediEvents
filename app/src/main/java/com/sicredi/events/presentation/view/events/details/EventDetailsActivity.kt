@@ -25,8 +25,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEventDetailsBinding
     private val event by lazy {
-        intent.getParcelableExtra(EVENT_EXTRA) as? Event
-            ?: throw RuntimeException("Event not found")
+        intent.getParcelableExtra(EVENT_EXTRA) as? Event ?: throw Exception("Event not found")
     }
     private val googleMap by lazy { supportFragmentManager.findFragmentByTag(MAP_TAG) as SupportMapFragment }
 
@@ -41,26 +40,26 @@ class EventDetailsActivity : AppCompatActivity() {
     private fun subscribeUi() {
         _viewModel.goTo.observe(this, ::onGoTo)
         _viewModel.dialog.observe(this, ::onDialog)
-        _viewModel.onCheckInSuccess.observe(this) { onCheckInSuccess() }
-        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
         _viewModel.onUserInfo.observe(this, ::onUserInfo)
+        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
+        _viewModel.onCheckInSuccess.observe(this) { onCheckInSuccess() }
     }
 
     private fun setupUi() {
         with(binding) {
             buttonGoBack.setSafeClickListener { finish() }
-            buttonMakeCheckIn.setSafeClickListener { _viewModel.onCheckInClicked() }
             buttonShare.setSafeClickListener { shareEvent() }
+            buttonMakeCheckIn.setSafeClickListener { _viewModel.onCheckInClicked() }
         }
     }
 
     private fun setupEventInfo() {
         with(binding) {
-            imageViewEventPoster.load(event.image)
             textViewEventTitle.text = event.title
-            textViewPrice.text = event.price.toMoneyString(root.context)
             textViewDescription.text = event.description
+            textViewPrice.text = event.price.toMoneyString(root.context)
             textViewEventDate.text = event.date.getDayDescription(root.context)
+            imageViewEventPoster.load(event.image)
             googleMap.getMapAsync { it.goToPosition(event.location) }
         }
     }

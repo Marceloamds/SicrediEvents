@@ -1,4 +1,4 @@
-package com.sicredi.events.domain.interactor
+package com.sicredi.events.domain.use_case
 
 import com.sicredi.events.domain.boundary.UserInfoRepository
 import com.sicredi.events.domain.form.CheckInForm

@@ -1,9 +1,7 @@
 package com.sicredi.events.domain
 
 import com.sicredi.events.domain.form.CheckInForm
-import com.sicredi.events.domain.form.validator.EmailValidation
 import com.sicredi.events.domain.form.validator.InvalidFieldsException
-import org.junit.Before
 import org.junit.Test
 
 class CheckInFormTest {

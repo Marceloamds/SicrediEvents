@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.sicredi.events.R
-import com.sicredi.events.presentation.util.extension.onGoTo
 import com.sicredi.events.databinding.ActivitySplashBinding
+import com.sicredi.events.presentation.util.extension.onGoTo
 import com.sicredi.events.presentation.util.extension.transparentStatusAndNavigation
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

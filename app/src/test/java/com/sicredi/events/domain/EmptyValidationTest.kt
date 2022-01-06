@@ -1,6 +1,5 @@
 package com.sicredi.events.domain
 
-import com.sicredi.events.domain.form.validator.EmailValidation
 import com.sicredi.events.domain.form.validator.EmptyValidation
 import org.junit.Before
 import org.junit.Test

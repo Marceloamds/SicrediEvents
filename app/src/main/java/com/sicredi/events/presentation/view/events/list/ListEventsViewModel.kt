@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.sicredi.events.domain.entity.event.Event
-import com.sicredi.events.domain.interactor.EventCheckIn
-import com.sicredi.events.domain.interactor.GetEventsList
+import com.sicredi.events.domain.use_case.GetEventsList
 import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.error.ErrorHandler
 import com.sicredi.events.presentation.util.extension.launchDataLoad
@@ -43,7 +42,7 @@ class ListEventsViewModel constructor(
     }
 
     private fun requestEvents() {
-        launchDataLoad( onFailure = ::onFailure, onPlaceholder = { _placeholder.value = it }) {
+        launchDataLoad(onFailure = ::onFailure, onPlaceholder = { _placeholder.value = it }) {
             val eventsList = getEventsList.execute()
             setEventsList(eventsList)
         }

@@ -3,12 +3,12 @@ package com.sicredi.events.presentation.events.details
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.sicredi.events.domain.entity.error.RequestException
 import com.sicredi.events.domain.entity.user.UserInfo
-import com.sicredi.events.domain.interactor.EventCheckIn
-import com.sicredi.events.domain.interactor.GetUserInfo
+import com.sicredi.events.domain.use_case.EventCheckIn
+import com.sicredi.events.domain.use_case.GetUserInfo
 import com.sicredi.events.getOrAwaitValue
 import com.sicredi.events.presentation.util.error.ErrorHandler
 import com.sicredi.events.presentation.view.events.details.EventDetailsViewModel
-import com.sicredi.events.presentation.view.user.check_in.UserInfoNavData
+import com.sicredi.events.presentation.view.user.info.UserInfoNavData
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

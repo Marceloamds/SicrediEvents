@@ -1,12 +1,11 @@
-package com.sicredi.events.presentation.view.user.check_in
+package com.sicredi.events.presentation.view.user.info
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sicredi.events.domain.form.CheckInForm
 import com.sicredi.events.domain.form.validator.InvalidFieldsException
-import com.sicredi.events.domain.interactor.SaveCheckInInfo
+import com.sicredi.events.domain.use_case.SaveCheckInInfo
 import com.sicredi.events.presentation.util.communication.SingleLiveEvent
-import com.sicredi.events.presentation.util.extension.launchDataLoad
 import com.sicredi.events.presentation.util.extension.tryCatch
 
 class UserInfoViewModel constructor(

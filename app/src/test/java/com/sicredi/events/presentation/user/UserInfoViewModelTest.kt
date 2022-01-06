@@ -1,18 +1,10 @@
 package com.sicredi.events.presentation.user
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.sicredi.events.domain.entity.error.RequestException
-import com.sicredi.events.domain.entity.user.UserInfo
-import com.sicredi.events.domain.form.CheckInForm.Companion.EMAIL_ID
 import com.sicredi.events.domain.form.validator.InvalidFieldsException
-import com.sicredi.events.domain.interactor.EventCheckIn
-import com.sicredi.events.domain.interactor.GetUserInfo
-import com.sicredi.events.domain.interactor.SaveCheckInInfo
+import com.sicredi.events.domain.use_case.SaveCheckInInfo
 import com.sicredi.events.getOrAwaitValue
-import com.sicredi.events.presentation.util.error.ErrorHandler
-import com.sicredi.events.presentation.view.events.details.EventDetailsViewModel
-import com.sicredi.events.presentation.view.user.check_in.UserInfoNavData
-import com.sicredi.events.presentation.view.user.check_in.UserInfoViewModel
+import com.sicredi.events.presentation.view.user.info.UserInfoViewModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +15,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import java.util.concurrent.Executors
-import kotlin.test.assertEquals
 
 class UserInfoViewModelTest {
 

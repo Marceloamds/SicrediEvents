@@ -1,4 +1,4 @@
-package com.sicredi.events.presentation.view.user.check_in
+package com.sicredi.events.presentation.view.user.info
 
 import android.content.Context
 import android.content.Intent
@@ -57,7 +57,7 @@ class UserInfoActivity : AppCompatActivity() {
         }
     }
 
-    private fun onSaveSuccess(){
+    private fun onSaveSuccess() {
         shortToast(getString(R.string.check_in_save_info_success))
         finish()
     }

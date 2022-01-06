@@ -12,11 +12,8 @@ open class RequestHandler {
         return coroutineScope {
             try {
                 block.run {
-                    if (isSuccessful) {
-                        body()
-                    } else {
-                        throw RequestException.HttpError(code())
-                    }
+                    if (isSuccessful) body()
+                     else throw RequestException.HttpError(code())
                 }
             } catch (t: Exception) {
                 throw when (t) {

@@ -36,7 +36,7 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name="com.sicredi.events.presentation.view.user.check_in.UserInfoActivity"
+            android:name="com.sicredi.events.presentation.view.user.info.UserInfoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme" />
 

@@ -3,7 +3,7 @@ package com.sicredi.events.presentation.events.list
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.android.gms.maps.model.LatLng
 import com.sicredi.events.domain.entity.event.Event
-import com.sicredi.events.domain.interactor.GetEventsList
+import com.sicredi.events.domain.use_case.GetEventsList
 import com.sicredi.events.getOrAwaitValue
 import com.sicredi.events.presentation.util.error.ErrorHandler
 import com.sicredi.events.presentation.view.events.details.EventDetailsNavData

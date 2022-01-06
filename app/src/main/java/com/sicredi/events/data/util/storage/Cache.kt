@@ -1,4 +1,5 @@
 package com.sicredi.events.data.util.storage
+
 import java.lang.reflect.Type
 
 interface Cache {

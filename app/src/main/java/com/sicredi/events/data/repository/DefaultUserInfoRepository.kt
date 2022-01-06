@@ -14,13 +14,15 @@ class DefaultUserInfoRepository constructor(private val cache: Cache) : UserInfo
     }
 
     override suspend fun getUserInfo(): UserInfo? {
-        val name  = cache.get<String>(USER_NAME, String::class.java)
+        val name = cache.get<String>(USER_NAME, String::class.java)
         val email = cache.get<String>(USER_EMAIL, String::class.java)
-        return safeLet(name, email) { safeName, safeEmail -> UserInfo(safeName, safeEmail) }
+        return safeLet(name, email) { safeName, safeEmail ->
+            UserInfo(safeName, safeEmail)
+        }
     }
 
     companion object {
-        const val USER_NAME = "USER_NAME"
-        const val USER_EMAIL = "USER_EMAIL"
+        private const val USER_NAME = "USER_NAME"
+        private const val USER_EMAIL = "USER_EMAIL"
     }
 }
