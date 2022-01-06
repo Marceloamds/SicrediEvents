@@ -1,47 +1,28 @@
-# SicrediEvents
+# Eventos Sicredi
 
-Leia atentamente as instruções abaixo e não hesite em entrar em contato com a gente :).
+# Tecnologias Utilizadas
+- Kotlin: Android é Kotlin First a algum tempo. Comparado ao java, propõe melhor legibiliade e menos boilerplate no código. Essencial para qualquer desenvolvedor android
+ 
+- MVVM: Arquitetura mais popular em Android hoje. Com ela, temos alto desacoplamento e muito mais facilidade na manutenção do código. Por mais que o MVP seja fácil de aprender, o MVVM gera menos código e menos dependências.
 
-Objetivo
-Criar uma aplicativo que consuma uma REST API e exiba uma listagem de eventos;
-Cada item da lista deve permitir acesso à detalhes do evento;
-No detalhe do evento é importante exibir suas informações e opções de check-in e compartilhamento.
-Requisitos mínimos
-App deve compilar sem a necessidade de nenhum ajuste após ser clonado
-Suporte à API 19 e funcionar com a API 29
-Código deve ser escrito em Kotlin
-Layout
-A escolha do layout e disposição dos itens é livre.
+- Clean Architecture: Arquitetura para promover ainda mais separação de responsabilidades. Por mais que mais classes e pacotes sejam gerados, ela deixa a navegação mais fácil deixa o app mais testável
 
-Sobre seu código
-Analisaremos:
+- Retrofit e Gson: Tecnologia padrão para chamadas HTTP. Faz com que o trabalho das chamadas muito mais simples e fácil
 
-Organização do código;
-Boas práticas de programação;
-Possíveis bugs;
-Tratamento de erros;
-O uso de frameworks e libraries é livre.
-API
-A API de eventos está disponivel em:
-http://5f5a8f24d44d640016169133.mockapi.io/api/events
+- DataBinding: Alternativa ao findViewById(). Deixa a Activity bem ligada ao XML, o que previne erros, boilerplates e facilita muito nos testes.
 
-Para acessar cada detalhe do evento basta adicionar o ID do item ao final da URL. Ex: http://5f5a8f24d44d640016169133.mockapi.io/api/events/1
+- Glide: Biblioteca mais popular para carregamento de imagens. O uso dela ao invés do Picasso é de preferência pessoal.
 
-Para realizar o check-in faça um POST no seguinte endereço: http://5f5a8f24d44d640016169133.mockapi.io/api/checkin
+- Koin: Permite a injeção de dependência no projeto. A vantagem são códigos simples, elegante, muito legíveis e sem boilerplate, usando o máximo potencial do Kotlin. A desvantagem, comparado ao Dagger, é que alguns erros acontecem em tempo de execução, o que pode levar a crashes em aplicativos com muitos fluxos. Outra alternativa viável seria o Hilt, que não foi usado por falta de familiaridade
 
-O POST deve conter os dados do interessado (Nome, e-mail) e o id do evento. Ex:
+- Coroutines: Usado para criação de Threads. Coroutines propõe um código sequencial mesmo ao criar uma outra thread. Comparado ao RXJava, é mais elegante, simples e sem boilerplate, feito para usar com o Kotlin. A desvantagem é que o coroutines não possui tanta flexibilidade e leque de opções igual o RxJava
 
-{ "eventId": "1", "name": "Otávio", "email": "otavio_souza@..." }
+- JUnit 4: Biblioteca mais utilizada para rodar testes. JUnit 5 não foi utilizado por falta de familiriaridade mas seria altamente viável
 
-Itens extras
-Explicação breve do porquê das escolhas de frameworks e arquitetura;
-Uso de testes unitários e de aceitação (interface).
-Dicas
-Dê atenção especial às recomendações do Material Design;
-Fique a vontade para utilizar animações e recursos especias (ex: parallax etc...);
-Teste bem seu aplicativo, evite crashes.
-Observações importantes
-Não inicie o teste sem sanar todas as dúvidas;
-A API pode ter falhas, prepare seu aplicativo para contorná-las.
-O aplicativo deve ser compartilhado através de um repositório git
-Bom teste!
+- MockK para Unit Tests: Usada para facilitar os mocks nos testes. Feito para usar com kotlin e deixa o código bem elegante e sem boilerplates
+
+- Robelectric: Usado para ser possível rodar testes de view em testes unitários. Perfeito para testar o Binding
+
+- Espresso: Biblioteca padrão para testes de UI. Faz com que seja possível abrir o emulador e testar automaticamente as ações de um usuário
+
+- Mockito para Testes de UI: Tem um pouco mais de boilerplate que o MockK, mas este não pode ser utilizado em testes de UI por conta de uma API mínima de 21.
