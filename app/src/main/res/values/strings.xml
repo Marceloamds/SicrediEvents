@@ -44,4 +44,7 @@
     <string name="check_in_save_info_success">Informações salvas com sucesso!</string>
     <string name="check_in_submit_info">Submeter informações</string>
     <string name="check_in_done">Check in realizado com sucesso!</string>
+
+    <!--maps key-->
+    <string name="maps_api_key">AIzaSyDOb5LSy_DXyWbsRGybifAPaLBgFgb_57I</string>
 </resources>
