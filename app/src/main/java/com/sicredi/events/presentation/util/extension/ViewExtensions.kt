@@ -6,13 +6,18 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.Window
+import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.textfield.TextInputLayout
+import com.sicredi.events.BuildConfig
 import com.sicredi.events.R
 import com.sicredi.events.presentation.util.click.SafeClickListener
 
@@ -23,23 +28,9 @@ fun View.setSafeClickListener(callback: () -> Unit) {
     }
 }
 
-// transparent
-fun transparentStatusAndNavigation(window: Window) {
-    window.decorView.systemUiVisibility =
-        (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-    setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false, window)
-    window.statusBarColor = Color.TRANSPARENT
-}
-
-fun setWindowFlag(bits: Int, on: Boolean, window: Window) {
-    val win: Window = window
-    val winParams: WindowManager.LayoutParams = win.attributes
-    if (on) {
-        winParams.flags = winParams.flags or bits
-    } else {
-        winParams.flags = winParams.flags and bits.inv()
-    }
-    win.attributes = winParams
+fun View.transparentStatusAndNavigation(window: Window) {
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    WindowInsetsControllerCompat(window, this).isAppearanceLightStatusBars = true
 }
 
 @SuppressLint("CheckResult")

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sicredi Events</string>
+    <string name="app_name">Eventos Sicredi</string>
     <!--Global Strings-->
     <string name="global_try_again">Tente novamente</string>
     <string name="global_ok">OK</string>
