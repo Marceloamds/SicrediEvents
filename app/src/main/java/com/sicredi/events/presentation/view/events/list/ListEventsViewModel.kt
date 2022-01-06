@@ -35,11 +35,7 @@ class ListEventsViewModel constructor(
     }
 
     fun onEventSelected(event: Event) {
-        goTo(EventDetailsNavData(event))
-    }
-
-    private fun goTo(navData: NavData) {
-        _goTo.postValue(navData)
+        _goTo.value = (EventDetailsNavData(event))
     }
 
     fun getAllEvents() {

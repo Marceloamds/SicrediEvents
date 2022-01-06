@@ -10,7 +10,7 @@ import com.sicredi.events.R
 import com.sicredi.events.presentation.util.dialog.DialogData
 import com.sicredi.events.presentation.util.navigation.NavData
 
-private const val INTENT_TEXT_TYPE = "text/plain"
+const val INTENT_TEXT_TYPE = "text/plain"
 
 fun Context.showDialog(dialogData: DialogData): Dialog {
     val builder = AlertDialog.Builder(this)

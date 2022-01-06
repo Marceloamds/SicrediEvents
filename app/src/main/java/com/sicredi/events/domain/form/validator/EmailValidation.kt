@@ -1,8 +1,6 @@
 package com.sicredi.events.domain.form.validator
 
-class EmailValidation(
-    override val isRequired: Boolean = true
-) : BaseValidation {
+class EmailValidation : BaseValidation {
 
     override var text: String? = null
 

@@ -40,7 +40,6 @@ class ListEventsActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         adapter = ListEventsAdapter(_viewModel::onEventSelected)
-        binding.recyclerViewEvents.layoutManager = LinearLayoutManager(this@ListEventsActivity)
         binding.recyclerViewEvents.adapter = adapter
     }
 

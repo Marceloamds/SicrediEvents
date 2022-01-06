@@ -50,6 +50,7 @@ class EventDetailsActivity : AppCompatActivity() {
         with(binding) {
             buttonGoBack.setSafeClickListener { finish() }
             buttonMakeCheckIn.setSafeClickListener { _viewModel.onCheckInClicked() }
+            buttonShare.setSafeClickListener { shareEvent() }
         }
     }
 
@@ -88,9 +89,25 @@ class EventDetailsActivity : AppCompatActivity() {
         addMarker(MarkerOptions().position(location))
     }
 
-    private fun onMapCLicked(location: LatLng){
+    private fun onMapCLicked(location: LatLng) {
         val mapIntent = Intent(Intent.ACTION_VIEW, location.getNavigationIntentUri())
         startActivity(mapIntent)
+    }
+
+    private fun shareEvent() {
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(
+                Intent.EXTRA_TEXT,
+                getString(
+                    R.string.share_event_description,
+                    event.title,
+                    event.date.getDayDescription(this@EventDetailsActivity)
+                )
+            )
+            type = INTENT_TEXT_TYPE
+        }
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_event_send_to)))
     }
 
     private fun LatLng.getNavigationIntentUri(): Uri? {
@@ -99,8 +116,8 @@ class EventDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val MAP_TAG = "google_map"
+        const val EVENT_EXTRA = "EVENT_EXTRA"
         private const val NAVIGATION_URL = "google.navigation:q="
-        private const val EVENT_EXTRA = "EVENT_EXTRA"
 
         fun createIntent(context: Context, event: Event): Intent {
             return Intent(context, EventDetailsActivity::class.java).apply {

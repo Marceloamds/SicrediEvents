@@ -7,7 +7,7 @@ class SaveCheckInInfo constructor(
     private val userInfoRepository: UserInfoRepository
 ) {
 
-    suspend fun execute(checkInForm: CheckInForm) {
+    fun execute(checkInForm: CheckInForm) {
         checkInForm.validate()
         userInfoRepository.saveCheckInInfo(checkInForm)
     }

@@ -8,7 +8,7 @@ import com.sicredi.events.presentation.util.extension.safeLet
 
 class DefaultUserInfoRepository constructor(private val cache: Cache) : UserInfoRepository {
 
-    override suspend fun saveCheckInInfo(checkInForm: CheckInForm) {
+    override fun saveCheckInInfo(checkInForm: CheckInForm) {
         cache.set(USER_EMAIL, checkInForm.emailValidation.text)
         cache.set(USER_NAME, checkInForm.nameValidation.text)
     }

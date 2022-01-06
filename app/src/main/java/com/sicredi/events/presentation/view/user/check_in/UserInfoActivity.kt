@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.sicredi.events.R
-import com.sicredi.events.databinding.ActivityEventCheckInBinding
+import com.sicredi.events.databinding.ActivityUserInfoBinding
 import com.sicredi.events.domain.form.CheckInForm.Companion.EMAIL_ID
 import com.sicredi.events.domain.form.CheckInForm.Companion.NAME_ID
 import com.sicredi.events.domain.form.validator.InvalidFieldsException
@@ -21,13 +21,13 @@ class UserInfoActivity : AppCompatActivity() {
 
     private val _viewModel: UserInfoViewModel by viewModel()
 
-    private lateinit var binding: ActivityEventCheckInBinding
+    private lateinit var binding: ActivityUserInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.check_in_title)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_event_check_in)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_user_info)
         setupUi()
         subscribeUi()
     }

@@ -7,3 +7,7 @@ import org.koin.test.KoinTest
 @RunWith(AndroidJUnit4::class)
 class SicrediEventsUiTest : KoinTest {
 }
+
+// Testar sucesso do check-in
+// Testar sucesso de informações de usuário
+// Testar erro de informações de usuário

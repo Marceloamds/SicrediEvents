@@ -5,6 +5,6 @@ import com.sicredi.events.domain.form.CheckInForm
 
 interface UserInfoRepository {
 
-    suspend fun saveCheckInInfo(checkInForm: CheckInForm)
+    fun saveCheckInInfo(checkInForm: CheckInForm)
     suspend fun getUserInfo(): UserInfo?
 }

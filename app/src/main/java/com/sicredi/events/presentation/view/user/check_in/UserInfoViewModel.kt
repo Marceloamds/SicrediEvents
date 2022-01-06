@@ -7,6 +7,7 @@ import com.sicredi.events.domain.form.validator.InvalidFieldsException
 import com.sicredi.events.domain.interactor.SaveCheckInInfo
 import com.sicredi.events.presentation.util.communication.SingleLiveEvent
 import com.sicredi.events.presentation.util.extension.launchDataLoad
+import com.sicredi.events.presentation.util.extension.tryCatch
 
 class UserInfoViewModel constructor(
     private val saveCheckInInfo: SaveCheckInInfo
@@ -21,7 +22,7 @@ class UserInfoViewModel constructor(
     private val _invalidFields by lazy { SingleLiveEvent<InvalidFieldsException>() }
 
     fun onSubmitClicked(name: String?, email: String?) {
-        launchDataLoad(onFailure = ::onFailure) {
+        tryCatch(onFailure = ::onFailure) {
             saveCheckInInfo.execute(CheckInForm(name, email))
             _onSaveSuccess.value = Unit
         }

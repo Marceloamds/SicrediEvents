@@ -22,15 +22,16 @@
     <string name="empty_list_helper_text">Não foi possível carregar os eventos! :(\n\n Verifique sua conexão e tente novamente</string>
     <!--Event Details-->
     <string name="description_label">Descrição</string>
+    <string name="share_event_description">Que tal me acompanhar nesse evento do Sicredi?\n%s em %s</string>
+    <string name="share_event_send_to">Enviar evento para</string>
     <string name="price_label">Preço</string>
     <string name="do_check_in">Fazer Check-in</string>
-    <string name="review_label">Review</string>
     <string name="date_description_template">%s, %2d de %s</string>
     <string name="money_template">R$ %.2f</string>
     <!--Event Check-In-->
     <string name="check_in_title">Check in</string>
     <string name="user_info_dialog_title">Continuar com suas informações?</string>
-    <string name="user_info_dialog_description">Nome: %s \nEmail: %s</string>
+    <string name="user_info_dialog_description">Nome\n%s\n\nEmail\n%s</string>
     <string name="user_info_dialog_keep_info">Continuar</string>
     <string name="user_info_dialog_change_info">Mudar informações</string>
     <string name="check_in_info_explanation">Preencha as informações para prosseguir com o check-in</string>
